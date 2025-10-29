@@ -8,6 +8,11 @@ public class WebController {
     
     @GetMapping("/")
     public String home() {
+        return "home";
+    }
+
+    @GetMapping("/tracker")
+    public String tracker() {
         return "index";
     }
 }
