@@ -11,6 +11,11 @@ public class WebController {
         return "home";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping("/tracker")
     public String tracker() {
         return "index";
