@@ -14,7 +14,7 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            background: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,27 +28,28 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             text-align: center;
-            color: white;
+            color: #2193b0;
         }
 
         h1 {
             font-size: 3.5em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .description {
             font-size: 1.2em;
             line-height: 1.6;
             margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            color: #666;
         }
 
         .features {
@@ -59,20 +60,26 @@
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: #f8f9fa;
             padding: 20px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #eee;
             transition: transform 0.3s ease;
+            color: #2193b0;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(33, 147, 176, 0.1);
         }
 
         .feature-icon {
             font-size: 2em;
             margin-bottom: 10px;
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .cta-button {
@@ -81,18 +88,16 @@
             font-size: 1.2em;
             text-decoration: none;
             color: white;
-            background: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(5px);
             transition: all 0.3s ease;
             margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(33, 147, 176, 0.2);
         }
 
         .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(33, 147, 176, 0.3);
         }
 
         .icon {
@@ -150,7 +155,7 @@
 
             <a href="/tracker" class="cta-button">
                 <i class="fas fa-arrow-right"></i>
-                Get Started
+                Track your Expense
             </a>
         </div>
     </div>
