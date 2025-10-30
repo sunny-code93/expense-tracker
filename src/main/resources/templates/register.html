@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login - Expense Tracker</title>
+    <title>Register - Expense Tracker</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -24,11 +24,11 @@
 
         .container {
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
             padding: 20px;
         }
 
-        .login-container {
+        .register-container {
             background: #ffffff;
             border-radius: 15px;
             padding: 40px;
@@ -57,7 +57,8 @@
         }
 
         input[type="text"],
-        input[type="password"] {
+        input[type="password"],
+        input[type="email"] {
             width: 100%;
             padding: 12px;
             border: 1px solid #dcdfe6;
@@ -110,11 +111,15 @@
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 14px;
-            display: none;
         }
 
-        .error-message.show {
-            display: block;
+        .success-message {
+            color: #2193b0;
+            background: #f0fff4;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
 
         .input-icon {
@@ -133,40 +138,52 @@
             padding-right: 35px;
         }
 
-        .register-link {
+        .login-link {
             text-align: center;
             margin-top: 15px;
             font-size: 14px;
             color: #666;
         }
 
-        .register-link a {
+        .login-link a {
             color: #2193b0;
             text-decoration: none;
             font-weight: 500;
         }
 
-        .register-link a:hover {
+        .login-link a:hover {
             color: #6dd5ed;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="login-container">
-            <h1><i class="fas fa-lock"></i> Login</h1>
-            <form th:action="@{/login}" method="post">
-                <div th:if="${param.error}" class="error-message show">
-                    Invalid username or password
+        <div class="register-container">
+            <h1><i class="fas fa-user-plus"></i> Register</h1>
+            <form th:action="@{/register}" method="post">
+                <div th:if="${error}" class="error-message" th:text="${error}">
                 </div>
-                <div th:if="${param.logout}" class="error-message show" style="background: #f0fff4; color: #2193b0;">
-                    You have been logged out
+                <div th:if="${success}" class="success-message" th:text="${success}">
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <div class="input-icon">
+                        <input type="text" id="fullName" name="fullName" required>
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
                     <div class="input-icon">
-                        <input type="text" id="username" name="username" required autocomplete="off">
-                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" name="username" required>
+                        <i class="fas fa-at"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-icon">
+                        <input type="email" id="email" name="email" required>
+                        <i class="fas fa-envelope"></i>
                     </div>
                 </div>
                 <div class="form-group">
@@ -176,17 +193,11 @@
                         <i class="fas fa-key"></i>
                     </div>
                 </div>
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label class="remember-me" style="display: flex; align-items: center; cursor: pointer;">
-                        <input type="checkbox" name="remember-me" id="remember-me" style="margin-right: 8px;">
-                        <span style="color: #666;">Remember me</span>
-                    </label>
-                </div>
                 <button type="submit" class="submit-btn">
-                    <i class="fas fa-sign-in-alt"></i> Login
+                    <i class="fas fa-user-plus"></i> Register
                 </button>
-                <div class="register-link">
-                    Don't have an account? <a href="/register">Register</a>
+                <div class="login-link">
+                    Already have an account? <a href="/login">Login</a>
                 </div>
             </form>
         </div>

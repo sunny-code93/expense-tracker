@@ -17,8 +17,17 @@ public class Expense {
     private BigDecimal amount;
     private LocalDate date;
     private String category;
+    private String username;
 
     // Getters and Setters
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public Long getId() {
         return id;
     }
